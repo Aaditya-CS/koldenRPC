@@ -1,0 +1,14 @@
+import logging
+from dota2gsipy.server import GSIServer
+
+logging.basicConfig(level=logging.INFO)
+
+server = GSIServer(("127.0.0.1", 4000),"hello1234")
+server.start_server()
+
+while True:
+    print(f'Gold: {server.game_state.player.gold}')
+    print(f'Name: {server.game_state.player.name}')
+    print(f'Hero name: {server.game_state.hero.name}')
+    print(f'Talents: {server.game_state.hero.talents}')
+    print(f"Clock time:  {server.game_state.map.clock_time}")
